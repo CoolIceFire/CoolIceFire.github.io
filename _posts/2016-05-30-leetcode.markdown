@@ -22,7 +22,7 @@ tags:
 ---
 
 ## 正文
-1.[Reverse String](https://leetcode.com/problems/reverse-string/) **方法**：two points **难度**：☆ **代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Reverse%20String)。
+1.[Reverse String](https://leetcode.com/problems/reverse-string/) **方法**：two points **难度**：☆   **代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Reverse%20String)
 
 2.[Counting Bits](https://leetcode.com/problems/counting-bits/) **方法**：DP **难度**：☆☆ **代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Counting%20Bits)
 
