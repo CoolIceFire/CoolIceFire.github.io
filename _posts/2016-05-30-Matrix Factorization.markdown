@@ -10,7 +10,7 @@ tags:
     - 推荐系统
 ---
 
-> “Yeah It's on. ”
+> “Go and get it, now ! ”
 
 
 ## 前言
@@ -66,11 +66,16 @@ tags:
 * 不容易从现实生活中进行解释，User特征矩阵和Item特征矩阵的每个维度无法用现实概念进行解释。
  
 ## 实验
-看完paper后，用MovieLens的数据进行了实验，用的100K中的u1.base和u1.test，train set的rmse是1.0，test set的rmse1.1左右，好像是有点高，再慢慢调调参数试试。
+看完paper后，用MovieLens的数据进行了实验，用的100K中的u1.base和u1.test，train set的rmse是0.90，test set的rmse0.95左右。
 
 代码：请戳[这里。](https://github.com/CoolIceFire/RS/tree/master/MatrixFactorization)
 
+## Paper
+看paper戳[这里。](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf)
+
 ## 后记
+
+这个是以前看过的paper，算是现在补上。。。
 
 第一次用markdown写，格式啥的不熟悉……可能有点乱。用LaTex写的公式应该没错……
 
