@@ -68,7 +68,7 @@ tags:
 ## 实验
 看完paper后，用MovieLens的数据进行了实验，用的100K中的u1.base和u1.test，train set的rmse是0.90，test set的rmse0.95左右。
 
-代码：请戳[这里。](https://github.com/CoolIceFire/RS/tree/master/MatrixFactorization)
+代码：请戳[这里。](https://github.com/CoolIceFire/RS/blob/master/MatrixFactorization/mf_01)
 
 ## Paper
 看paper戳[这里。](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf)
