@@ -30,8 +30,11 @@ tags:
 
 3.[Nim Game](https://leetcode.com/problems/nim-game/) **方法**：很简单的博弈，如果个数是4的倍数，肯定会输，因为对方可以每次使两个人拿的个数和为4 **难度**：☆ **代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Nim%20Game)
 
+4.[Two Sum](https://leetcode.com/problems/two-sum/) **方法**：Hash **难度**：☆
+**代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Two%20Sum)
+
 ## 更新
 
-1.更新与2015-05-30
-
+1.更新于2016-05-30
+2.更新于2016-05-31
 
