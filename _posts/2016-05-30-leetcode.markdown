@@ -33,6 +33,9 @@ tags:
 4.[Two Sum](https://leetcode.com/problems/two-sum/) **方法**：Hash **难度**：☆
 **代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Two%20Sum)
 
+5.[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) **方法**：LinkList/Math **难度**：☆
+**代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Add%20Two%20Numbers)
+
 ## 更新
 
 1.更新于2016-05-30
