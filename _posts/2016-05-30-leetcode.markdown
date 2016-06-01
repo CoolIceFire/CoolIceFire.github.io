@@ -36,9 +36,14 @@ tags:
 5.[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) **方法**：LinkList/Math **难度**：☆
 **代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Add%20Two%20Numbers)
 
+6.[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **方法**：Two Pointers **难度**：☆☆
+**代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Longest%20Substring%20Without%20Repeating%20Characters)
+
+* 分析：用一个数组保存某个字母是否出现过，然后遍历字符串，在i处，如果s[i]没有出现过，那么cnt就+1，如果s[i]出现过，那么就要找到上次是在何处出现的，然后cnt就变为了i-j(上次出现该字母的位置)，然后将cnt与ans对比，如果cnt>ans，则更新ans. cnt保存的是访问到i处时，包含s[i]的符合要求串的最大长度。
+
 ## 更新
 
-1.更新于2016-05-30
+1.更新于2016-05-30/31
 
-2.更新于2016-05-31
+2.更新于2016-06-01
 
