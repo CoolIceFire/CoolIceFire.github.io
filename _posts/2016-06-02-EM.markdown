@@ -1,0 +1,52 @@
+---
+layout:     post
+title:      "Expectation Maximization"
+subtitle:   "EM算法推导及实现"
+date:       2016-06-02
+author:     "LiGuang"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - 算法
+---
+
+> “Yeah It's on. ”
+
+
+## 前言
+概率模型有时既含有观测变量，又含有隐变量或潜在变量。如果概率模型的变量都是观测变量，那么给定数据，可以直接使用极大似然估计，或贝叶斯估计法估计模型参数。但是，当模型含有隐变量时，就不能简单的使用这些估计方法。EM算法就是含有隐变量的极大似然估计法，或极大后验概率估计法。
+<p id = "build"></p>
+---
+
+## 正文
+假设用X来表示可观测的随机变量的数据，Z表示隐随机变量的数据，X和Z一起称之为完全数据。假设给定观测数据X，其概率分布为P(X|h),其中h是需要估计的模型参数，那么不完全数据Y的似然函数就是P(X|h)，对数似然函数L(h)=logP(X|h)，假设Y和Z的联合概率分布是P(X,Z|h),那么完全数据的最大似然函数是logP(X,Z|h).EM算法通过迭代求L(h)=logP(X|h)的极大似然估计，每次迭代包含两步：E步，求期望；M步，求极大化。
+下面以高斯混合模型来说明：
+
+假设可观测数据X是由K个高斯分布混合而成，这K个高斯分布的均值不同，但是有相同的方差。设可观测数据为![](http://www.forkosh.com/mathtex.cgi?X=\left \{ X_{1},X_{2},...,X_{n} \right \})，Xi可以表示为一个k+1元组，<Xi, hi1, hi2,...hik>，其中只有一个取1，其余为0。hi1,...hik为隐含变量，是未知的。下面是推导过程：
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160602/CodeCogsEqn.gif)
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160602/CodeCogsEqn%285%29.gif)
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160602/CodeCogsEqn%281%29.gif)
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160602/CodeCogsEqn%282%29.gif)
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160602/CodeCogsEqn%283%29.gif)
+
+使其等于0，则可求得：
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160602/CodeCogsEqn%284%29.gif)
+
+## 实现
+
+模拟2个正态分布的均值估计，即k=2.
+
+代码请戳[这里。](https://github.com/CoolIceFire/RS/blob/master/EM.py)
+## 后记
+EM算法可以应用到推荐系统中，比如解决物品冷启动问题，即在一个系统中加入一个新的物品后，如何对物品进行推荐，这个应用在后续的文章中进行展示。
+
+关于EM算法的详细推导可以参见：
+
+1.李航，[统计方法学习](https://book.douban.com/subject/10590856/)
+
+2.CSDN，[机器学习](http://lib.csdn.net/base/2#-fl)
