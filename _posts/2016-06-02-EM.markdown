@@ -38,13 +38,14 @@ tags:
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160602/CodeCogsEqn%284%29.gif)
 
 ## 实现
-
 模拟2个正态分布的均值估计，即k=2.
 
 代码请戳[这里。](https://github.com/CoolIceFire/RS/blob/master/EM.py)
+
 ## 后记
 EM算法可以应用到推荐系统中，比如解决物品冷启动问题，即在一个系统中加入一个新的物品后，如何对物品进行推荐，这个应用在后续的文章中进行展示。
 
+## 引用资料
 关于EM算法的详细推导可以参见：
 
 1.李航，[统计方法学习](https://book.douban.com/subject/10590856/)
