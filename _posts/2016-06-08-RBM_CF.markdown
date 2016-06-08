@@ -2,7 +2,7 @@
 layout:     post
 title:      "受限玻尔兹曼机(RBM)"
 subtitle:   "Restricted Boltzmann Machines for Collaborative Filtering"
-date:       2016-06-07
+date:       2016-06-08
 author:     "LiGuang"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
@@ -106,6 +106,7 @@ RBM可视为一个无向图模型，可见层(visible layer)用于表示观测�
 上面给的代码可能有错误，有人指出错误之处的话，不胜感激=。=
 
 不正之处，欢迎指出！
+
 ## 参考
 1. Hinton，Restricted Boltzmann Machines for Collaborative Filtering.
 2. Gilles LOUPPE，Collaborative filtering Scalable approaches using restricted Boltzmann machines.
