@@ -1,0 +1,112 @@
+---
+layout:     post
+title:      "受限玻尔兹曼机(RBM)"
+subtitle:   "Restricted Boltzmann Machines for Collaborative Filtering"
+date:       2016-06-07
+author:     "LiGuang"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - 推荐系统
+---
+
+> “Yeah It's on. ”
+
+
+## 前言
+
+以前读Hinton大神的利用受限玻尔兹曼机(Restricted Boltzmann Machines,简称RBM)进行协同过滤的paper，然后根据paper学习了一下RBM的原理并且利用MovieLens的数据进行了实验。[paper](http://www.cs.toronto.edu/~rsalakhu/papers/rbmcf.pdf)在这。
+<p id = "build"></p>
+---
+
+## 简介
+受限玻尔兹曼机(RBM)是一类具有两层结构、对称连接且无自反馈的随机神经网络模型，层间全连接，层内无连接。玻尔兹曼机(BM)层间全连接，层内也是全连接。RBM是一种有效的特征提取方法，用于初始化前馈神经网络可明显提高泛华能力，堆叠多个RBM组成的深度信念网络能够提取更抽象的特征。实验表明，RBM能够很好的用于协同过滤。下面介绍一下RBM以及在协同过滤方面的应用方法。
+
+## 结构模型
+BM与RBM的区别与简介中所介绍的相一致，如下图所示：
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160607/06.png)
+BM具有强大的无监督学习能力，能够学习数据中复杂的规则，但是训练的时间非常长。而RBM的结构却有很好的性质：在给定可见层单元状态时，各隐单元的激活条件也随之独立；反之，在给定隐单元状态时，可见层单元的激活条件亦独立。
+
+RBM可视为一个无向图模型，可见层(visible layer)用于表示观测数据，隐藏层(hidden layer)可视为一些特征提取器，可见层与隐藏层之间的连线即为连接权重W。RBM中的隐单元和可见单元可以为任意的指数族单元，为了方便讨论，假设所有的可见单元和隐单元均为二值变量，即{0,1}。
+
+一个RBM中有n个可见单元和m个隐单元，用向量v和h分别表示可见单元和隐单元的状态。对于一组给定的状态，RBM作为一个系统所具有的能量定义为：
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160607/07.gif)
+
+其中，![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160607/08.gif)是RBM的参数。其中Wij为连接权重，ai为可见层单元i的偏置(bias)，bj表示的是隐单元j的偏置。参数确定时，我们可得到(v,h)的联合概率分布，即
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160607/09.png)，其中Z(θ)为归一化因子(或配分函数，partition function)。
+
+对于一个实际的问题，我们关心的是由RBM所定义的关于观测数据v的分布，即联合概率分布P(v,h|θ)的边缘分布，也称之为似然函数，这与协同过滤中非常相似，可见层为user-item矩阵，根据隐藏层计算得到可见层矩阵的数据，即可得到user对每个item评分的估计值。其公式为：
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160607/10.png)，为了确定该分布，需要计算归一化因子Z(θ)，这需要2^(n+m)次计算。因此，即使可以通过训练得到模型的参数，仍然无法高效的计算由这些参数所确定的分布。
+
+但是，由于RBM的特殊结构可知，当给定可见单元的状态时，各隐藏单元的激活状态之间是条件独立的。此时，第j个隐单元的激活概率为：
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160607/11.png)
+
+其中σ(x)=(1+exp(-x))^(-1)为sigmoid激活函数。
+
+由于RBM的结构是对称的，当给定隐单元的状态时，各可见单元的激活状态之间也是条件独立的，即第i个可见单元的激活概率为：
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160607/12.png)
+
+## 基于对比散度的训练方法
+如何求出参数θ的值，以拟合给定的训练数据是学习RBM的任务。参数θ可以通过最大化RBM在训练集上的对数似然函数得到。即：
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160608/01.png)，使用随机梯度上升法可以求得L(θ)的最大值。关键是求L(θ)关于各个模型参数的导数，然后可以对各个参数进行更新。下面是部分推导公式：
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160608/02.png)
+对θ求导：
+![https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160608/03.png](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160608/03.png)
+其中<·>p表示求关于分布P的数学期望。其中P(h|v,θ)根据前面的结论很容易能够求得，但是P(v,h|θ)表示的是可见单元与隐单元的联合分布，由于归一化因子Z(θ)的存在，该分布很获得，只能够通过一些采样方法获得其近似值。
+
+下面是对数似然函数关于权重Wij、可见层单元偏置ai和隐单元偏置bj的偏导数：
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160608/04.png)
+## Gibbs采样
+在应用中由于需要较大的采样步数，使得RBM训练效率不高，所以实际中并不是应用Gibbs采样，而是采取对比散度算法(CD),所以此段略过……
+## 对比散度算法(Contrastive Divergence, CD)
+此方法已经成为了RBM训练的标准算法，K步CD算法的步骤很简单，具体可以描述如下：
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160608/05.png)
+其中W为权重矩阵，a为可见层的偏置，b为隐藏层的偏置，m为隐藏层单元的个数，ε为学习率，T为最大训练周期。	Hinton在paper中之处，通常情况下，k=1的时候训练效果就比较好了，而且效率也非常的高。
+## RBM与协同过滤
+**Model**
+
+首先，下图是RBM for CF的结构图：
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160608/06.png)
+在此结构中，可见层的某一个user的rating-item矩阵，比如可以对电影在1~5之间打分，如果有k部电影，那么rating-item的矩阵大小则为5*K，在可见层中黑色的单元为user对该电影的评分，如图中用户对第0部电影的评分为3分。可以看到还有许多Missing，这表示评分缺失。在训练过程中，Missing单元不参与训练，但是这样的话写程序会变得麻烦，所以可以将Missing单元的数据全部置为0。
+
+从图中可以看到这是一个很典型经典的RBM模型，那么如何对其训练？在训练过程中，可见层V的数据为某一个用户的评分数据，隐藏层单元均为二值变量{0,1}，按照paper中所描述，所有用户共享权值矩阵W，可见层偏置vbias，隐藏层偏置hbias，简单说就是我们所需要做的就是对RBM初始化之后，把用户i的评分数据扔到可见层中，然后进行训练，训练完成，然后再把用户j的数据扔进去，继续训练，直到所有的用户训练完成。
+
+训练完成之后，如何根据RBM来计算某个用户对item的评分呢？可以用下面的公式：
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160608/07.png)
+
+上式表示的是用户对第i个item评分为k的概率。
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160608/08.png)
+
+上式是如何对隐藏层单元进行计算。
+
+**Learning**
+
+与上文中描述的RBM训练方法相类似，权重的更新方式如下：
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160608/09.png)
+
+为了避免计算<>model,采用CD算法，权重更新方式为：
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160608/11.png)
+
+**Making Predictions**
+
+进行预测的方法也不复杂，现在我们已经获得了训练完成的权值参数W，可见层偏置vbias，隐藏层偏置hbias，如果想求用户u对物品i的评分，那么把u的评分数据更新到可见层，然后求得隐藏层单元的值，根据隐藏层单元的值即可求得可见层单元的值。
+过程描述如下：
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160608/12.png)
+在Hinton的paper中也给出了计算的公式：
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160608/13.png)
+
+其中k表示的评分数据，比如用MovieLens实验，那么k=5，q为第q个电影，求得了概率之后就可对评分进行预测。比如，用户对电影q评分1-5分的概率分别为0.06,0.12,0.096,0.594,0.13，那么我们可以说该用户对电影q的预测评分为4分。
+## 实验
+用MovieLens的数据进行了实验，不过效果不是太好，不知道是我参数设置的问题还是程序的问题，现在rmse能到1.0多点，改天再调调试试。代码[戳我](https://github.com/CoolIceFire/RS/blob/master/RBM/rbm.cpp)。
+## 后记
+这是最基本的RBM for CF，在paper中还介绍了RBM with Gaussian Hidden Units, Conditional-RBM等，后续再讲。
+
+上面给的代码可能有错误，有人指出错误之处的话，不胜感激=。=
+
+不正之处，欢迎指出！
+## 参考
+1. Hinton，Restricted Boltzmann Machines for Collaborative Filtering.
+2. Gilles LOUPPE，Collaborative filtering Scalable approaches using restricted Boltzmann machines.
+3. 张春霞，受限波尔兹曼机简介．
