@@ -98,8 +98,10 @@ RBM可视为一个无向图模型，可见层(visible layer)用于表示观测�
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160608/13.png)
 
 其中k表示的评分数据，比如用MovieLens实验，那么k=5，q为第q个电影，求得了概率之后就可对评分进行预测。比如，用户对电影q评分1-5分的概率分别为0.06,0.12,0.096,0.594,0.13，那么我们可以说该用户对电影q的预测评分为4分。
+
 ## 实验
 用MovieLens的数据进行了实验，不过效果不是太好，不知道是我参数设置的问题还是程序的问题，现在rmse能到1.0多点，改天再调调试试。代码[戳我](https://github.com/CoolIceFire/RS/blob/master/RBM/rbm.cpp)。
+
 ## 后记
 这是最基本的RBM for CF，在paper中还介绍了RBM with Gaussian Hidden Units, Conditional-RBM等，后续再讲。
 
