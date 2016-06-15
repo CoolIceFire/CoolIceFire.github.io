@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Deep content-based music recommendation"
-subtitle:   "Restricted Boltzmann Machines for Collaborative Filtering"
+subtitle:   "Recommending music on Spotify with deep learning"
 date:       2016-06-15
 author:     "LiGuang"
 header-img: "img/post-bg-2015.jpg"
