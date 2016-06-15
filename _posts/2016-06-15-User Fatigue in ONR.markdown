@@ -2,7 +2,7 @@
 layout:     post
 title:      "User Fatigue in Online News Recommendation"
 subtitle:   "在线新闻推荐中用户疲劳问题"
-date:       2016-06-015
+date:       2016-06-15
 author:     "LiGuang"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
