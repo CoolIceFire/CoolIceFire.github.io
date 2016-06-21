@@ -17,6 +17,7 @@ tags:
 快找工作了，再写写常见的数据结构与算法，熟悉一下，本文持续不定期更新，内容会包括排序算法、树、图算法、字符串算法等......不正之处，欢迎指出。
 <p id = "build"></p>
 ---
+
 ## 排序
 
 **冒泡排序**
@@ -39,7 +40,7 @@ tags:
 参考代码：
 
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160616/01.png)
-****
+
 **选择排序**
 
 原理：每次在未排序的元素中找出最小(大)的元素，将其放到已排序的序列末尾。
@@ -49,7 +50,7 @@ tags:
 参考代码：
 
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160616/02.png)
-****
+
 **插入排序**
 
 原理：对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。
@@ -59,7 +60,7 @@ tags:
 参考代码：
 
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160616/03.png)
-****
+
 **快速排序**
 
 原理：使用分治法把一个序列分为两个子序列排序，然后合并。
@@ -76,7 +77,7 @@ tags:
 
 参考代码：
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160617/01.png)
-****
+
 **归并排序**
 
 归并算法指的是将两个已排序的序列合并成一个序列的操作，其递归法原理如下：
@@ -90,7 +91,7 @@ tags:
 参考代码：
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160621/011.png)
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160621/012.png)
-****
+
 **堆排序**
 
 堆排序指的是利用堆这种数据结构设计的一种排序算法，结构近似于完全二叉树，其子节点的键值或索引总是小于(或者大于)它的父节点。其方法如下：
@@ -102,6 +103,6 @@ tags:
 
 参考代码：
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160621/013.png)
-****
+
 
 持续更新ing......
