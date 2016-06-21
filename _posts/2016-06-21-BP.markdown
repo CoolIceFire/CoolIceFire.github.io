@@ -60,10 +60,11 @@ w是隐藏层到输出层的权重，b为隐藏层偏置。
 参数右上角l表示第l层，α是学习速率，现在关键是如何计算偏导数。
 
 我们定义残差δ，该残差表明了该节点对最终输出值的残差产生了多少影响。对于输出节点，我们可以算出网络产生的激活值与实际值的差距。
+
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160621/02.png)
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160621/03.png)
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160621/04.png)
-其中![](http://deeplearning.stanford.edu/wiki/images/math/d/4/d/d4d5e09ac8e035283671cc03d942f955.png)。
+其中![](http://deeplearning.stanford.edu/wiki/images/math/d/4/d/d4d5e09ac8e035283671cc03d942f955.png)
 
 下面利用mnist进行实验，数据是从kaggle上的Digit Recognizer题目中获得，train_data格式为[label, x1, ... ,x784]，第0个元素表示的是数字，后面的28*28个元素是其各点像素值。训练集准确率为97.6%左右，测试集准确率为94%。
 
@@ -71,8 +72,10 @@ w是隐藏层到输出层的权重，b为隐藏层偏置。
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160621/06.png)
 
 代码[在这](https://github.com/CoolIceFire/RS/blob/master/bp%20for%20mnist)，数据[在这](https://www.kaggle.com/c/digit-recognizer/data)，代码都添加了相应的注释。
+
 ## 后记
 推导部分写的有点乱，详细推导可以看参考中的链接(讲的很详细!!!)，跟着推导一下就很明了了。用bp做digit recognizer也不是很复杂，可以写一下代码。
+
 ## 参考
 1. [Neural Networks](http://deeplearning.stanford.edu/wiki/index.php/Neural_Networks)
 2. [Backpropagation Algorithm](http://deeplearning.stanford.edu/wiki/index.php/Backpropagation_Algorithm)
