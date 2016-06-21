@@ -104,5 +104,13 @@ tags:
 参考代码：
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160621/013.png)
 
+**计数排序**
+
+计数排序是使用一个额外的数组C，其中第i个元素是待排序数组A中值等于i的元素的个数，然后根据数组C来将A中的元素排到正确的位置。
+
+复杂度：时间复杂度O(n+k)，空间复杂度O(k)，k为待排序数组中最大的数与最小数之差+1.
+
+参考代码：
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160621/021.png)
 
 持续更新ing......
