@@ -101,6 +101,8 @@ tags:
 3. 将arr[0]与arr[n-2]交换，与步骤2相同。
 4. 直到arr[0]与arr[1]交换，排序结束。
 
+复杂度：时间复杂度O(nlogn)。
+
 参考代码：
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160621/013.png)
 
