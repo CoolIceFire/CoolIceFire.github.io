@@ -1,0 +1,78 @@
+---
+layout:     post
+title:      "Back Propagation Neural Network"
+subtitle:   "BP学习笔记"
+date:       2016-06-21
+author:     "LiGuang"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - 深度学习
+---
+
+> “Yeah It's on. ”
+
+
+## 前言
+
+本文结合kaggle上mnist识别问题，讲一下如何应用BP神经网络，后面有实现代码。
+<p id = "build"></p>
+---
+
+## 简介
+BP(Back Propagation)网络是按误差逆传播算法训练的多层前馈网络。通过不断的调整权值，使网络的误差最小。
+## 正文
+神经网络由多层神经网络层构成，每层包含许多单元，其中第一层称之为输入层，最后一层称之为输出层，中间的称之为隐藏层。除了输出层外，每层都有一个偏置节点。其简单结构如下图所示：
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160620/001.png)
+
+BP神经网络主要分为两个阶段，第一阶段是信号的前向传播，第二个阶段是误差的反向传播。
+
+前向传播阶段是信号从输入层到隐藏层，然后从隐藏层到输出层。首先是
+
+**初始化**
+假设输入层单元数目为m,隐藏层单元数目为k，输出层单元数目为n。那么网络中存在以下几个参数：输入层到隐藏层的权重weight[m][k]，输入层偏置hbias[k]，隐藏层到输出层的权重weight[k][n]，隐藏层偏置obias[n]。其中权重矩阵的初始值为[-1, 1]，偏置的初始值为[0, 1]。激励函数g(x)为sigmoid函数，即
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160620/002.gif)
+
+**隐藏层**
+隐藏层的值用下面公式进行计算：
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160620/003.gif)
+
+其中w是输入层到隐藏层的权重，b为输入层的偏置。
+
+**输出层**
+与隐藏层相似，只是权重与偏置的差别。其计算方法如下：
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160620/004.gif)
+
+w是隐藏层到输出层的权重，b为隐藏层偏置。
+
+好了，现在我们已经计算出三层bp网络的输出值啦，但是，你想一下，参数都是随机设的，这样肯定会有很大误差的啊，可是怎么能够找到最优的参数呢？想要得到最优的参数，那么该网络的输出误差应该是最小的，现在问题转化到使误差最小化。误差是什么呢？下面是输出层误差：
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160620/005.gif)
+
+现在，我们的目标是针对参数W和b来求J的最小值，我们可以使用梯度下降法对参数进行更新：
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160621/01.png)
+
+参数右上角l表示第l层，α是学习速率，现在关键是如何计算偏导数。
+
+我们定义残差δ，该残差表明了该节点对最终输出值的残差产生了多少影响。对于输出节点，我们可以算出网络产生的激活值与实际值的差距。
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160621/02.png)
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160621/03.png)
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160621/04.png)
+其中![](http://deeplearning.stanford.edu/wiki/images/math/d/4/d/d4d5e09ac8e035283671cc03d942f955.png)。
+
+下面利用mnist进行实验，数据是从kaggle上的Digit Recognizer题目中获得，train_data格式为[label, x1, ... ,x784]，第0个元素表示的是数字，后面的28*28个元素是其各点像素值。训练集准确率为97.6%左右，测试集准确率为94%。
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160621/05.png)
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160621/06.png)
+
+代码[在这](https://github.com/CoolIceFire/RS/blob/master/bp%20for%20mnist)，数据[在这](https://www.kaggle.com/c/digit-recognizer/data)，代码都添加了相应的注释。
+## 后记
+推导部分写的有点乱，详细推导可以看参考中的链接(讲的很详细!!!)，跟着推导一下就很明了了。用bp做digit recognizer也不是很复杂，可以写一下代码。
+## 参考
+1. [Neural Networks](http://deeplearning.stanford.edu/wiki/index.php/Neural_Networks)
+2. [Backpropagation Algorithm](http://deeplearning.stanford.edu/wiki/index.php/Backpropagation_Algorithm)
