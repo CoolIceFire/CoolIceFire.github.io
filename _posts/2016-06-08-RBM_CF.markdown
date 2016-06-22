@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "受限玻尔兹曼机(RBM)"
+title:      "Restricted Boltzmann Machines"
 subtitle:   "Restricted Boltzmann Machines for Collaborative Filtering"
 date:       2016-06-08
 author:     "LiGuang"
