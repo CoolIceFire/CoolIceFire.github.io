@@ -126,8 +126,11 @@ tags:
 线段树预处理耗时O(n)，查询、更新操作耗时O(logn)。下面就以上图写一下线段树的程序，数组大小为6，初始元素值为2，5，1，4，9，3，然后我们定义两种输入，第一种： 1 L R，表示的是查询[L,R]内的最大值；第二种：2 p val，表示的是对数组中第p个元素的值加上val，即arr[p-1]+val。PS：写完程序弄完图片才发现上图是查询最小值……把程序中max换成min就是最小值了。。。我这就不换了，程序中也写了注释，对比着运行结果带进去试试就很明白了。(代码就是图片形式的)
 
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160622/02.png)
+
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160622/031.png)
+
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160622/04.png)
+
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160622/05.png)
 
 
