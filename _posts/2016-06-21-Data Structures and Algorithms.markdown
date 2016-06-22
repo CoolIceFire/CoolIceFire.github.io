@@ -115,4 +115,20 @@ tags:
 参考代码：
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160621/021.png)
 
+## 树
+**线段树**
+线段树是一种二叉搜索树，将一个区间划分为多个单元区间，每个单元区间对应线段树上的一个节点。对于一个节点区间[a,b]，左子树表示的区间是[a, (a+b)/2]，右子树表示的区间是[(a+b)/2+1, b]，因此线段树是平衡二叉树。
+
+从一个例子讲一下线段树，问题描述为：从数组arr[0,...,n-1]中查找某个区间内的最小值，其中数组大小固定，但是数组中的元素的值可以随时更新。这个问题最耿直的做法是：遍历该区间找到最小值，时间复杂度是O(n)，但是当查询非常频繁的时候，时间复杂度是O(mn)，可能会不满足要求。而使用线段树则是一个很好的解决方法，如下图所示：
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160622/01.jpg)
+
+线段树预处理耗时O(n)，查询、更新操作耗时O(logn)。下面就以上图写一下线段树的程序，数组大小为6，初始元素值为2，5，1，4，9，3，然后我们定义两种输入，第一种： 1 L R，表示的是查询[L,R]内的最大值；第二种：2 p val，表示的是对数组中第p个元素的值加上val，即arr[p-1]+val。PS：写完程序弄完图片才发现上图是查询最小值……把程序中max换成min就是最小值了。。。我这就不换了，程序中也写了注释，对比着运行结果带进去试试就很明白了。(代码就是图片形式的)
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160622/02.png)
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160622/031.png)
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160622/04.png)
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160622/05.png)
+
+
 持续更新ing......
