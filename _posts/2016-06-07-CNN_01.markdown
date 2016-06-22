@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "卷积神经网络(CNN)"
+title:      "Convolutional Neural Network"
 subtitle:   "卷积神经网络学习笔记一"
 date:       2016-06-07
 author:     "LiGuang"
