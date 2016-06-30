@@ -43,6 +43,8 @@ tags:
 
 10. [CNN原理图解](http://xrds.acm.org/blog/2016/06/convolutional-neural-networks-cnns-illustrated-explanation/)
 
+11. [Factorization Machines](http://www.algo.uni-konstanz.de/members/rendle/pdf/Rendle2010FM.pdf), [FFM原理与实践](http://tech.meituan.com/deep-understanding-of-ffm-principles-and-practices.html)
+
 ## 后记
 
 持续更新……
