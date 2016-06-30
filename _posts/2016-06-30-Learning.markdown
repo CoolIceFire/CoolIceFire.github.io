@@ -1,0 +1,46 @@
+---
+layout:     post
+title:      "Learning"
+subtitle:   " \"学习资料\""
+date:       2016-06-30
+author:     "LiGuang"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - 学习
+---
+
+> “Yeah It's on. ”
+
+
+## 前言
+
+记录一些学习资料
+
+
+<p id = "build"></p>
+---
+
+## 正文
+
+1. [Awesome Random Forest](https://github.com/kjw0612/awesome-random-forest#theory)
+
+2. [随机森林](http://www.cnblogs.com/maybe2030/p/4585705.html)
+
+3. [Learning RNN from scratch (RNN神经网络参数推导)](http://blog.csdn.net/watkinsong/article/details/51773524)
+
+4. [Deep Learning for Recommender Systems - YouTube](https://www.youtube.com/watch?v=KZ7bcfYGuxw)
+
+5. [Probabilistic machine learning and artificial intelligence](http://www.nature.com/nature/journal/v521/n7553/full/nature14541.html)
+
+6. [Nature论文详解概率机器学习：从不确定性表征到自动建模](https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2650716475&idx=1&sn=2b03deead0c1e63be80fdc239293e805)
+
+7. [反向传播算法可视化](http://neupy.com/2015/07/04/visualize_backpropagation_algorithms.html)
+
+8. Generative Moment Matching Networks:生成式矩匹配网络(GMMNs) [Paper](http://jmlr.org/proceedings/papers/v37/li15.html), [Github](https://github.com/yujiali/gmmn)
+
+9. A Neural Autoregressive Approach to Collaborative Filtering [Paper](https://arxiv.org/abs/1605.09477)，[Github](https://github.com/Ian09/CF-NADE)
+
+## 后记
+
+持续更新……
