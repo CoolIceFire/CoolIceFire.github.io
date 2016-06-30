@@ -41,6 +41,8 @@ tags:
 
 9. A Neural Autoregressive Approach to Collaborative Filtering [Paper](https://arxiv.org/abs/1605.09477)，[Github](https://github.com/Ian09/CF-NADE)
 
+10. [CNN原理图解](http://xrds.acm.org/blog/2016/06/convolutional-neural-networks-cnns-illustrated-explanation/)
+
 ## 后记
 
 持续更新……
