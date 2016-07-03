@@ -45,6 +45,12 @@ tags:
 
 11. [Factorization Machines](http://www.algo.uni-konstanz.de/members/rendle/pdf/Rendle2010FM.pdf), [FFM原理与实践](http://tech.meituan.com/deep-understanding-of-ffm-principles-and-practices.html)
 
+12. [Minimizing Regret](http://www.minimizingregret.com/)(优化方面)
+
+13. [RNN&&LSTM资料](http://suanfazu.com/t/rnn-lstm/13587)
+
+14. [PRML网页版](https://www.gitbook.com/book/mqshen/prml/details)
+
 ## 后记
 
 持续更新……
