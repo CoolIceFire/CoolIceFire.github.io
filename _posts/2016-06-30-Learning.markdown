@@ -51,6 +51,16 @@ tags:
 
 14. [PRML网页版](https://www.gitbook.com/book/mqshen/prml/details)
 
+15. [Structural-RNN: Deep Learning on Spatio-Temporal Graphs](http://arxiv.org/abs/1511.05298), [简介](https://mp.weixin.qq.com/s?__biz=MzIxNzE2MTM4OA==&mid=2665642872&idx=1&sn=810d2a39c474faa37fe857d4513100ac)。
+
+16. [Bridging Nonlinearities and Stochastic Regularizers with Gaussian Error Linear Units](https://arxiv.org/abs/1606.08415v1) 
+
+17. 大脑学习与机器学习 [Part.1 Temporal Differences](http://blog.shakirm.com/2016/02/learning-in-brains-and-machines-1/) , [Part.2 The Dogma of Sparsity](http://blog.shakirm.com/2016/04/learning-in-brains-and-machines-2/), [Part.3 Synergistic and Modular Action ](http://blog.shakirm.com/2016/07/learning-in-brains-and-machines-3-synergistic-and-modular-action/)
+
+18. [Predict Sentiment From Movie Reviews Using Deep Learning](http://machinelearningmastery.com/predict-sentiment-movie-reviews-using-deep-learning/):使用深度学习从电影评论中预测情绪
+
+19. [Model-Free Prediction and Control](http://kvfrans.com/model-free-prediction-and-control/)：无模型预测与控制。
+
 ## 后记
 
 持续更新……
