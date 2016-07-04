@@ -61,6 +61,8 @@ tags:
 
 19. [Model-Free Prediction and Control](http://kvfrans.com/model-free-prediction-and-control/)：无模型预测与控制。
 
+20. 深度学习与自然语言处理(斯坦福cs224d)：[Lecture1](http://blog.csdn.net/longxinchen_ml/article/details/51567960), [Lecture2](http://blog.csdn.net/longxinchen_ml/article/details/51648532), [Lecture3](http://blog.csdn.net/longxinchen_ml/article/details/51711172), [大作业检测与解答1](http://blog.csdn.net/han_xiaoyang/article/details/51760923), [大作业检测与解答2](http://blog.csdn.net/han_xiaoyang/article/details/51815683).
+
 ## 后记
 
 持续更新……
