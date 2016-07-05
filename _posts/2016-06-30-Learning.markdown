@@ -63,6 +63,10 @@ tags:
 
 20. 深度学习与自然语言处理(斯坦福cs224d)：[Lecture1](http://blog.csdn.net/longxinchen_ml/article/details/51567960), [Lecture2](http://blog.csdn.net/longxinchen_ml/article/details/51648532)， [Lecture3](http://blog.csdn.net/longxinchen_ml/article/details/51711172)， [大作业检测与解答1](http://blog.csdn.net/han_xiaoyang/article/details/51760923)， [大作业检测与解答2](http://blog.csdn.net/han_xiaoyang/article/details/51815683)。
 
+21. [Machine learning techniques for price change forecast using the limit order book data](http://jcyhong.github.io/assets/machine-learning-price-movements.pdf)
+
+22. [Unsupervised Learning with Imbalanced Data via Structure Consolidation Latent Variable Model](http://arxiv.org/abs/1607.00067) 
+
 ## 后记
 
 持续更新……
