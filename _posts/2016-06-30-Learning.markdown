@@ -67,6 +67,8 @@ tags:
 
 22. [Unsupervised Learning with Imbalanced Data via Structure Consolidation Latent Variable Model](http://arxiv.org/abs/1607.00067) 
 
+23. Tensor系列：[New Ranks for Even-Order Tensors and Their Applications in Low-Rank Tensor Optimization](http://www.menet.umn.edu/~zhangs/Reports/2015_JMZ.pdf),  [Pairwise Interaction Tensor Factorization for Personalized Tag Recommendation](http://www.wsdm-conference.org/2010/proceedings/docs/p81.pdf), [Tensor Principal Component Analysis via Convex Optimization](https://arxiv.org/abs/1212.2702), [Tensor Decompositions and Applications](http://epubs.siam.org/doi/abs/10.1137/07070111X?journalCode=siread)
+
 ## 后记
 
 持续更新……
