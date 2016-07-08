@@ -89,6 +89,8 @@ Tensor系列
 
 5. [Tensor decompositions for feature extraction and classification of high dimensional datasets](http://www.bsp.brain.riken.jp/publications/2010/IEICE_NOLTA_Phan-Cichocki-corr.pdf)
 
+6. [Tensor Decomposition for Signal Processing and Machine Learning](http://arxiv.org/abs/1607.01668)
+
 ---------------------------------------------------------------------------------------------------------------
 
 卡尔曼贝叶斯过滤器
