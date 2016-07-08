@@ -23,57 +23,69 @@ tags:
 
 ## 正文
 
+1. [Learning RNN from scratch (RNN神经网络参数推导)](http://blog.csdn.net/watkinsong/article/details/51773524)
+
+2. [Deep Learning for Recommender Systems - YouTube](https://www.youtube.com/watch?v=KZ7bcfYGuxw)
+
+3. [Probabilistic machine learning and artificial intelligence](http://www.nature.com/nature/journal/v521/n7553/full/nature14541.html)
+
+4. [Nature论文详解概率机器学习：从不确定性表征到自动建模](https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2650716475&idx=1&sn=2b03deead0c1e63be80fdc239293e805)
+
+5. [反向传播算法可视化](http://neupy.com/2015/07/04/visualize_backpropagation_algorithms.html)
+
+6. Generative Moment Matching Networks:生成式矩匹配网络(GMMNs) [Paper](http://jmlr.org/proceedings/papers/v37/li15.html), [Github](https://github.com/yujiali/gmmn)
+
+7. A Neural Autoregressive Approach to Collaborative Filtering [Paper](https://arxiv.org/abs/1605.09477)，[Github](https://github.com/Ian09/CF-NADE)
+
+8. [CNN原理图解](http://xrds.acm.org/blog/2016/06/convolutional-neural-networks-cnns-illustrated-explanation/)
+
+9. [Factorization Machines](http://www.algo.uni-konstanz.de/members/rendle/pdf/Rendle2010FM.pdf), [FFM原理与实践](http://tech.meituan.com/deep-understanding-of-ffm-principles-and-practices.html)
+
+10. [Minimizing Regret](http://www.minimizingregret.com/)(优化方面)
+
+11. [RNN&&LSTM资料](http://suanfazu.com/t/rnn-lstm/13587)
+
+12. [PRML网页版](https://www.gitbook.com/book/mqshen/prml/details)
+
+13. [Structural-RNN: Deep Learning on Spatio-Temporal Graphs](http://arxiv.org/abs/1511.05298), [简介](https://mp.weixin.qq.com/s?__biz=MzIxNzE2MTM4OA==&mid=2665642872&idx=1&sn=810d2a39c474faa37fe857d4513100ac)。
+
+14. [Bridging Nonlinearities and Stochastic Regularizers with Gaussian Error Linear Units](https://arxiv.org/abs/1606.08415v1) 
+
+15. 大脑学习与机器学习 [Part.1 Temporal Differences](http://blog.shakirm.com/2016/02/learning-in-brains-and-machines-1/) , [Part.2 The Dogma of Sparsity](http://blog.shakirm.com/2016/04/learning-in-brains-and-machines-2/), [Part.3 Synergistic and Modular Action ](http://blog.shakirm.com/2016/07/learning-in-brains-and-machines-3-synergistic-and-modular-action/)
+
+16. [Predict Sentiment From Movie Reviews Using Deep Learning](http://machinelearningmastery.com/predict-sentiment-movie-reviews-using-deep-learning/):使用深度学习从电影评论中预测情绪
+
+17. [Model-Free Prediction and Control](http://kvfrans.com/model-free-prediction-and-control/)：无模型预测与控制。
+
+18. 深度学习与自然语言处理(斯坦福cs224d)：[Lecture1](http://blog.csdn.net/longxinchen_ml/article/details/51567960), [Lecture2](http://blog.csdn.net/longxinchen_ml/article/details/51648532)， [Lecture3](http://blog.csdn.net/longxinchen_ml/article/details/51711172)， [大作业检测与解答1](http://blog.csdn.net/han_xiaoyang/article/details/51760923)， [大作业检测与解答2](http://blog.csdn.net/han_xiaoyang/article/details/51815683)。
+
+19. [Machine learning techniques for price change forecast using the limit order book data](http://jcyhong.github.io/assets/machine-learning-price-movements.pdf)
+
+20. [Unsupervised Learning with Imbalanced Data via Structure Consolidation Latent Variable Model](http://arxiv.org/abs/1607.00067) 
+
+21. [One-Shot Session Recommendation Systems with Combinatorial Items](http://arxiv.org/abs/1607.01381)
+
+22. [Stochastic Portfolio Theory: A Machine Learning Perspective](http://arxiv.org/abs/1605.02654)
+
+23. [Stochastic Quasi-Newton Methods for Nonconvex Stochastic Optimization](http://arxiv.org/abs/1607.01231)
+
+24. [Temporal Topic Analysis with Endogenous and Exogenous Processes](http://arxiv.org/abs/1607.01274)
+
+25. UCLA数学系Wotao Yin优化课程,[本科生](http://www.math.ucla.edu/~wotaoyin/math164/),[研究生](http://www.math.ucla.edu/~wotaoyin/math273a/).
+
+26. 因果推断应用于推荐系统,[Causal Inference for Recommendation](http://people.hss.caltech.edu/~fde/UAI2016WS/papers/Liang.pdf):推荐数据源可分为两类：一类是用户看过的，称为曝光（exposure，广告中的曝光是impression）；一类是用户喜欢的，称为点击（click）。传统法只利用后者，但因前者会带来有偏，利用因果推断可纠偏。
+
+27. [A Neural Autoregressive Approach to Collaborative Filtering](http://jmlr.org/proceedings/papers/v48/zheng16.pdf),[代码](https://github.com/Ian09/CF-NADE).受启发于Restricted boltzmann machines for collaborative filtering && The neural autoregressive distribution estimator.
+
+---------------------------------------------------------------------------------------------------------------
+
+随机森林系列
+
 1. [Awesome Random Forest](https://github.com/kjw0612/awesome-random-forest#theory)
 
 2. [随机森林](http://www.cnblogs.com/maybe2030/p/4585705.html)
 
-3. [Learning RNN from scratch (RNN神经网络参数推导)](http://blog.csdn.net/watkinsong/article/details/51773524)
-
-4. [Deep Learning for Recommender Systems - YouTube](https://www.youtube.com/watch?v=KZ7bcfYGuxw)
-
-5. [Probabilistic machine learning and artificial intelligence](http://www.nature.com/nature/journal/v521/n7553/full/nature14541.html)
-
-6. [Nature论文详解概率机器学习：从不确定性表征到自动建模](https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2650716475&idx=1&sn=2b03deead0c1e63be80fdc239293e805)
-
-7. [反向传播算法可视化](http://neupy.com/2015/07/04/visualize_backpropagation_algorithms.html)
-
-8. Generative Moment Matching Networks:生成式矩匹配网络(GMMNs) [Paper](http://jmlr.org/proceedings/papers/v37/li15.html), [Github](https://github.com/yujiali/gmmn)
-
-9. A Neural Autoregressive Approach to Collaborative Filtering [Paper](https://arxiv.org/abs/1605.09477)，[Github](https://github.com/Ian09/CF-NADE)
-
-10. [CNN原理图解](http://xrds.acm.org/blog/2016/06/convolutional-neural-networks-cnns-illustrated-explanation/)
-
-11. [Factorization Machines](http://www.algo.uni-konstanz.de/members/rendle/pdf/Rendle2010FM.pdf), [FFM原理与实践](http://tech.meituan.com/deep-understanding-of-ffm-principles-and-practices.html)
-
-12. [Minimizing Regret](http://www.minimizingregret.com/)(优化方面)
-
-13. [RNN&&LSTM资料](http://suanfazu.com/t/rnn-lstm/13587)
-
-14. [PRML网页版](https://www.gitbook.com/book/mqshen/prml/details)
-
-15. [Structural-RNN: Deep Learning on Spatio-Temporal Graphs](http://arxiv.org/abs/1511.05298), [简介](https://mp.weixin.qq.com/s?__biz=MzIxNzE2MTM4OA==&mid=2665642872&idx=1&sn=810d2a39c474faa37fe857d4513100ac)。
-
-16. [Bridging Nonlinearities and Stochastic Regularizers with Gaussian Error Linear Units](https://arxiv.org/abs/1606.08415v1) 
-
-17. 大脑学习与机器学习 [Part.1 Temporal Differences](http://blog.shakirm.com/2016/02/learning-in-brains-and-machines-1/) , [Part.2 The Dogma of Sparsity](http://blog.shakirm.com/2016/04/learning-in-brains-and-machines-2/), [Part.3 Synergistic and Modular Action ](http://blog.shakirm.com/2016/07/learning-in-brains-and-machines-3-synergistic-and-modular-action/)
-
-18. [Predict Sentiment From Movie Reviews Using Deep Learning](http://machinelearningmastery.com/predict-sentiment-movie-reviews-using-deep-learning/):使用深度学习从电影评论中预测情绪
-
-19. [Model-Free Prediction and Control](http://kvfrans.com/model-free-prediction-and-control/)：无模型预测与控制。
-
-20. 深度学习与自然语言处理(斯坦福cs224d)：[Lecture1](http://blog.csdn.net/longxinchen_ml/article/details/51567960), [Lecture2](http://blog.csdn.net/longxinchen_ml/article/details/51648532)， [Lecture3](http://blog.csdn.net/longxinchen_ml/article/details/51711172)， [大作业检测与解答1](http://blog.csdn.net/han_xiaoyang/article/details/51760923)， [大作业检测与解答2](http://blog.csdn.net/han_xiaoyang/article/details/51815683)。
-
-21. [Machine learning techniques for price change forecast using the limit order book data](http://jcyhong.github.io/assets/machine-learning-price-movements.pdf)
-
-22. [Unsupervised Learning with Imbalanced Data via Structure Consolidation Latent Variable Model](http://arxiv.org/abs/1607.00067) 
-
-23. [One-Shot Session Recommendation Systems with Combinatorial Items](http://arxiv.org/abs/1607.01381)
-
-24. [Stochastic Portfolio Theory: A Machine Learning Perspective](http://arxiv.org/abs/1605.02654)
-
-25. [Stochastic Quasi-Newton Methods for Nonconvex Stochastic Optimization](http://arxiv.org/abs/1607.01231)
-
-26. [Temporal Topic Analysis with Endogenous and Exogenous Processes](http://arxiv.org/abs/1607.01274)
+3. [Deep Neural Decision Forests](http://120.52.73.14/www.cv-foundation.org/openaccess/content_iccv_2015/papers/Kontschieder_Deep_Neural_Decision_ICCV_2015_paper.pdf)
 
 ---------------------------------------------------------------------------------------------------------------
 
@@ -91,15 +103,19 @@ Tensor系列
 
 6. [Tensor Decomposition for Signal Processing and Machine Learning](http://arxiv.org/abs/1607.01668)
 
+7. [A Medium-Grained Algorithm for Distributed Sparse Tensor Factorization](https://www.cs.umn.edu/sites/cs.umn.edu/files/tech_reports/16-006.pdf)
+
 ---------------------------------------------------------------------------------------------------------------
 
-卡尔曼贝叶斯过滤器
+卡尔曼贝叶斯过滤器系列
 
 1. [An Introduction to the Kalman Filter](http://www.cs.unc.edu/~tracker/media/pdf/SIGGRAPH2001_CoursePack_08.pdf)
 
 2. [Kalman and Bayesian Filters in Python](http://nbviewer.jupyter.org/github/rlabbe/Kalman-and-Bayesian-Filters-in-Python/blob/master/table_of_contents.ipynb), [PDF](http://pan.baidu.com/s/1i34bvhF), [github](https://github.com/rlabbe/Kalman-and-Bayesian-Filters-in-Python).
 
 ---------------------------------------------------------------------------------------------------------------
+
+
 
 ## 后记
 
