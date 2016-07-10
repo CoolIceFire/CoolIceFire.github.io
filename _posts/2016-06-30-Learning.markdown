@@ -77,6 +77,8 @@ tags:
 
 27. [A Neural Autoregressive Approach to Collaborative Filtering](http://jmlr.org/proceedings/papers/v48/zheng16.pdf),[代码](https://github.com/Ian09/CF-NADE).受启发于Restricted boltzmann machines for collaborative filtering && The neural autoregressive distribution estimator.
 
+28. [Boosted Regression (Boosting): An introductory tutorial and a Stata plugin](http://www.schonlau.net/publication/05stata_boosting.pdf)
+
 ---------------------------------------------------------------------------------------------------------------
 
 随机森林系列
