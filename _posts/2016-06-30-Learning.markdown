@@ -83,6 +83,8 @@ tags:
 
 30. [Tutorials on Topics in Statistical Pattern Recognition](http://homepages.inf.ed.ac.uk/rbf/IAPR/researchers/PPRPAGES/pprtut.htm)
 
+31. 一些常见的机器学习算法的实现代码的总结,深度学习、PCA、KNN、SVM、GMM等,[链接](https://github.com/wepe/MachineLearning)
+
 ---------------------------------------------------------------------------------------------------------------
 
 随机森林系列
