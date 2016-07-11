@@ -44,6 +44,8 @@ tags:
 7.[Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/) **方法**：heap **难度**：☆☆
 **代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Find%20K%20Pairs%20with%20Smallest%20Sums)
 
+8.[Super Pow](https://leetcode.com/problems/super-pow/) **方法**：循环 **难度**：☆ **代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Super%20Pow)
+
 ## 更新
 
 1.更新于2016-05-30/31
