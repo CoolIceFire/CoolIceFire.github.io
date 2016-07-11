@@ -46,6 +46,11 @@ tags:
 
 8.[Super Pow](https://leetcode.com/problems/super-pow/) **方法**：循环 **难度**：☆ **代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Super%20Pow)
 
+9.[Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) **方法**：位方法 **难度**：☆ **代码**
+：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Sum%20of%20Two%20Integers)
+
+* 半加法的思想, 即两位单独的位相加其结果可以用异或得到, 进位可以用与得到. 然后对于两个数字来说同样可以延伸这个思想.
+
 ## 更新
 
 1.更新于2016-05-30/31
