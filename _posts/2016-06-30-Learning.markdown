@@ -85,6 +85,8 @@ tags:
 
 31. 一些常见的机器学习算法的实现代码的总结,深度学习、PCA、KNN、SVM、GMM等,[链接](https://github.com/wepe/MachineLearning)
 
+32. [Latent Dirichlet Allocation](http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf)
+
 ---------------------------------------------------------------------------------------------------------------
 
 随机森林系列
