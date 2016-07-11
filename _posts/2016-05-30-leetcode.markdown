@@ -41,6 +41,9 @@ tags:
 
 * 分析：用一个数组保存某个字母是否出现过，然后遍历字符串，在i处，如果s[i]没有出现过，那么cnt就+1，如果s[i]出现过，那么就要找到上次是在何处出现的，然后cnt就变为了i-j(上次出现该字母的位置)，然后将cnt与ans对比，如果cnt>ans，则更新ans. cnt保存的是访问到i处时，包含s[i]的符合要求串的最大长度。
 
+7.[Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/) **方法**：heap **难度**：☆☆
+**代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Find%20K%20Pairs%20with%20Smallest%20Sums)
+
 ## 更新
 
 1.更新于2016-05-30/31
