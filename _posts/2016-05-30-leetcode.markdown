@@ -51,6 +51,8 @@ tags:
 
 * 半加法的思想, 即两位单独的位相加其结果可以用异或得到, 进位可以用与得到. 然后对于两个数字来说同样可以延伸这个思想.
 
+10.[Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/) **方法**：暴力 **难度**：☆ **代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Largest%20Divisible%20Subset)
+
 ## 更新
 
 1.更新于2016-05-30/31
