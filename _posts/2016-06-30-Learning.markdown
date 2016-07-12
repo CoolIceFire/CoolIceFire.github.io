@@ -117,6 +117,8 @@ Tensor系列
 
 8. [Tensor Methods and Recommender Systems](https://arxiv.org/pdf/1603.06038.pdf)
 
+9. [Collaborative Training of Tensors for Compositional Distributional Semantics](http://arxiv.org/abs/1607.02310)
+
 ---------------------------------------------------------------------------------------------------------------
 
 卡尔曼贝叶斯过滤器系列
