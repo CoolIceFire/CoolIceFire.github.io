@@ -53,9 +53,12 @@ tags:
 
 10.[Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/) **方法**：暴力 **难度**：☆ **代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Largest%20Divisible%20Subset)
 
+11.[Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/) **方法**：暴力 **难度**：☆ **代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Valid%20Perfect%20Square)
+
 ## 更新
 
 1.更新于2016-05-30/31
 
 2.更新于2016-06-01
 
+略……
