@@ -135,6 +135,22 @@ LDA系列
 
 ---------------------------------------------------------------------------------------------------------------
 
+聚类系列
+
+1. [Unsupervised Deep Embedding for Clustering Analysis](http://arxiv.org/abs/1511.06335)
+
+2. [Online Low-Rank Subspace Clustering by Basis Dictionary Pursuit](http://arxiv.org/abs/1503.08356)
+
+3. [Correlation Clustering and Biclustering with Locally Bounded Errors](http://arxiv.org/abs/1506.08189)
+
+4. [Compressive Spectral Clustering](https://arxiv.org/abs/1602.02018)
+
+5. [Distributed Clustering of Linear Bandits in Peer to Peer Networks](https://arxiv.org/abs/1604.07706)
+
+6. [K-Means Clustering with Distributed Dimensions](http://www.jmlr.org/proceedings/papers/v48/ding16.html)
+
+---------------------------------------------------------------------------------------------------------------
+
 ## 后记
 
 持续更新……
