@@ -173,6 +173,18 @@ bandit系列
 
 ---------------------------------------------------------------------------------------------------------------
 
+稀疏矩阵补全系列
+
+1. [Exact matrix completion via convex optimization](http://pages.cs.wisc.edu/~brecht/papers/08.Candes.Recht.MatrixCompletion.pdf)
+
+2. [The Power of Convex Relaxation: Near-Optimal Matrix Completion](http://statweb.stanford.edu/~candes/papers/OptimalCompletion.pdf)
+
+3. [Matrix Completion from a Few Entries](https://arxiv.org/pdf/0901.3150.pdf)
+
+4. [A Simpler Approach to Matrix Completion](https://arxiv.org/abs/0910.0651)
+
+---------------------------------------------------------------------------------------------------------------
+
 ## 后记
 
 持续更新……
