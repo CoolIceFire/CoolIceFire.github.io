@@ -87,6 +87,8 @@ tags:
 
 32. [Latent Dirichlet Allocation](http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf)
 
+33. [Moving Beyond CTR: Better Recommendations Through Human Evaluation](http://blog.echen.me/2014/10/07/moving-beyond-ctr-better-recommendations-through-human-evaluation/)
+
 ---------------------------------------------------------------------------------------------------------------
 
 随机森林系列
