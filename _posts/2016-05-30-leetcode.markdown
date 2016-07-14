@@ -55,6 +55,14 @@ tags:
 
 11.[Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/) **方法**：暴力 **难度**：☆ **代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Valid%20Perfect%20Square)
 
+12.[Guess Number Higher or Lower](https://leetcode.com/problems/guess-number-higher-or-lower/) **方法**：二分 **难度**：☆ **代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Guess%20Number%20Higher%20or%20Lower)
+
+13.[Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) **方法**：递归 **难度**：☆ **代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Invert%20Binary%20Tree)
+
+14.[Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) **方法**：递归 **难度**：☆ **代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Maximum%20Depth%20of%20Binary%20Tree)
+
+15.[Add Digits](https://leetcode.com/problems/add-digits/) **方法**：暴力 **难度**：☆ **代码**：[点我](https://github.com/CoolIceFire/leetcode/blob/master/Add%20Digits)
+
 ## 更新
 
 1.更新于2016-05-30/31
