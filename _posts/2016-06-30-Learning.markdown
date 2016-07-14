@@ -89,6 +89,8 @@ tags:
 
 33. [Moving Beyond CTR: Better Recommendations Through Human Evaluation](http://blog.echen.me/2014/10/07/moving-beyond-ctr-better-recommendations-through-human-evaluation/)
 
+34. [Even Faster SVD Decomposition Yet Without Agonizing Pain](http://arxiv.org/abs/1607.03463)
+
 ---------------------------------------------------------------------------------------------------------------
 
 随机森林系列
