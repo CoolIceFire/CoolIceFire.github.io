@@ -1,0 +1,121 @@
+---
+layout:     post
+title:      "boosting"
+subtitle:   "提升方法"
+date:       2016-07-13
+author:     "LiGuang"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - 机器学习
+---
+
+> “Yeah It's on. ”
+
+
+## 前言
+提升方法是一种常用的方法，在分类问题中，它通过改变训练样本的权重，学习多个分类器，并将这些分类器进行线性组合，提高分类的性能。
+
+<p id = "build"></p>
+---
+
+## 正文
+首先介绍一下强可学习与弱可学习的概念，强可学习指的是在概率近似正确学习的框架下，一个概念，如果存在一个多项式的学习算法能够学习它，并且争取率很高，那么则称这个概念是强可学习的；弱可学习指的是一个概念，如果存在一个多项式的学习算法能够学习它，学习的争取率仅仅比随机猜测好，那么就称这个概念为弱可学习的。
+
+由于在学习中发现弱学习算法通常要比发现强学习算法要容易得多，那么如果发现了“弱学习算法”能否将其提升为“强学习算法”呢？答案是肯定的。具体如何提升存在许多的算法，最具代表性的就是AdaBoost算法。
+
+对于提升方法来说，有两个问题需要回答：一是如何改变每轮训练中数据的权值；二是如何将弱分类器组合成一个强分类器。
+
+带着上面的问题，我们可以从AdaBoost算法的学习中，学习AdaBoost是如何解决上面的两个问题。
+
+## AdaBoost
+
+输入：训练数据集T={(x1,y1), (x2, y2),...,(xn,yn)} y∈{1，-1}
+
+输出：最终的分类器
+
+其算法过程如下所示：
+
+1. 初始化训练数据的权值分布：
+	
+	D1 = {w11, w12,...,w1n}
+
+2. 对于m=1,2,...M
+	(a)使用具有权值分布Dm的训练数据集学习，得到基本的分类器
+			
+			Gm(x): x→{-1,+1}
+
+	(b)计算Gm(x)在训练集上的分类误差率
+
+	![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160714/1.gif)
+
+	(c)计算Gm(x)的系数
+
+	![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160714/2.gif)
+
+	(d)更新训练数据集的权值分布
+	
+	![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160714/3.gif)
+
+	![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160714/4.gif)
+
+	这里Zm是规范化因子
+	
+	![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160714/5.gif)
+
+3. 构建基本分类器的线性组合
+
+	![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160714/6.gif)
+
+	得到最终的分类器
+
+	![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160714/7.gif)
+
+以上就是adaboost算法的步骤，说明如下：
+
+	1. 步骤一中假设训练数据集具有均匀的权值分布
+	2. 步骤二中反复学习基本分类器，其中分类器的系数α在分类器中是非常重要的，当误差率小于0.5时，α>=0，并且随着误差率的减小而增大，所以分类误差率越小的分类器在最终分类器中的作用越大。
+	3. 通过权值更新方法可以发现，在每一轮更新中，被基本分类器误分类样本的权值得以扩大，而正确分类的样本权值得以减小。所以，误分类数据在下一轮训练中起更大的作用。
+
+## Adaboost代码
+
+写了一个很简单的例子，可以对照着公式推导看一下adaboost算法的实现。代码[在这](https://github.com/CoolIceFire/ML/blob/master/AdaBoost/AdaBoost.cpp)。
+
+## 提升树
+
+由于树的线性组合可以很好的拟合训练数据，即使数据中的输入与输出之间的关系很复杂也是如此，所以提升树是一个高功能的学习算法。
+
+提升树的算法如下：
+
+输入：训练数据集T={(x1,y1),...,(xn,yn)}
+
+输出：提升树
+
+1. 初始化f0(x)=0
+2. 对于m=1,2,...,M
+	
+	(a)计算残差
+
+	![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160714/8.gif)
+
+	(b)拟合残差rmi学习一个回归树，得到T(x;θm)
+
+	(c)更新![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160714/9.gif)
+
+3. 得到会归属问题提升树
+
+	![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160714/10.gif)
+
+对于二分类问题，提升树算法只需要将adaboost算法中的基本分类器限制为二类分类树即可，这时的提升树算法是adaboost算法的特殊情况。
+
+## 代码
+
+写了一个很简单的例子，可以对照着公式推导看一下adaboost算法的实现。代码[在这](https://github.com/CoolIceFire/ML/blob/master/AdaBoost/BoostingTree.cpp)。
+
+## 后记
+
+代码随便写的，应该有点丑不规范啥的
+
+## 参考
+
+1. 李航，统计学习方法．
