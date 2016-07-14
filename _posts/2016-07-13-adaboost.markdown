@@ -108,7 +108,7 @@ tags:
 
 对于二分类问题，提升树算法只需要将adaboost算法中的基本分类器限制为二类分类树即可，这时的提升树算法是adaboost算法的特殊情况。
 
-## 代码
+## 回归提升树代码
 
 写了一个很简单的例子，可以对照着公式推导看一下adaboost算法的实现。代码[在这](https://github.com/CoolIceFire/ML/blob/master/AdaBoost/BoostingTree.cpp)。
 
