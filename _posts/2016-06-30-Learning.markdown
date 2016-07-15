@@ -91,6 +91,8 @@ tags:
 
 34. [Even Faster SVD Decomposition Yet Without Agonizing Pain](http://arxiv.org/abs/1607.03463)
 
+35. [Time-Contrastive Learning for Latent Variable Models](http://www.inference.vc/temporal-contrastive-learning-for-latent-variable-models/)
+
 ---------------------------------------------------------------------------------------------------------------
 
 随机森林系列
