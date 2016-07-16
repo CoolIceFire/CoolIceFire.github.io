@@ -79,7 +79,7 @@ tags:
 
 28. [Boosted Regression (Boosting): An introductory tutorial and a Stata plugin](http://www.schonlau.net/publication/05stata_boosting.pdf)
 
-29. [Generating Recommendations at Amazon Scale with Apache Spark and Amazon DSSTNE | AWS Big Data Blog](http://blogs.aws.amazon.com/bigdata/post/TxGEL8IJ0CAXTK/Generating-Recommendations-at-Amazon-Scale-with-Apache-Spark-and-Amazon-DSSTNE)
+29. [Generating Recommendations at Amazon Scale with Apache Spark and Amazon DSSTNE](http://blogs.aws.amazon.com/bigdata/post/TxGEL8IJ0CAXTK/Generating-Recommendations-at-Amazon-Scale-with-Apache-Spark-and-Amazon-DSSTNE)
 
 30. [Tutorials on Topics in Statistical Pattern Recognition](http://homepages.inf.ed.ac.uk/rbf/IAPR/researchers/PPRPAGES/pprtut.htm)
 
