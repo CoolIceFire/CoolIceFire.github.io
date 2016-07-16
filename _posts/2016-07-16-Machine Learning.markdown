@@ -30,6 +30,8 @@ k-近邻(kNN)算法的工作原理是：存在一个样本数据集合，集合�
 
 测试集：每一组数据包括784个像素值，同样把像素值01化。
 
+以下是实现[代码](https://github.com/CoolIceFire/ML/blob/master/ML_By_Kaggle/kNN_Digit_Recognizer.py)：
+
 	from numpy import *
 	import operator
 	import csv
