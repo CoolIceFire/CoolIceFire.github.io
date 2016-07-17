@@ -106,6 +106,134 @@ k-近邻(kNN)算法的工作原理是：存在一个样本数据集合，集合�
 
 主要考虑问题：K的取值，训练样本是否一视同仁，能否在减少训练样本数的同时保持精度等
 
+## ID3
+ID3算法是一个分类预测算法，该算法的核心是“信息熵”问题，熵定义为信息的期望值，熵的计算公式为
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160716/01.gif)
+
+得到熵之后，按照获取最大信息增益的方法划分数据集。信息增益在此处的计算方法为数据集划分前后熵的变化。ID3存在很大的局限性，那就是ID3算法无法直接处理数值型数据，尽管可以通过量化的方法将数值型数据转化为标称型数值，但是特征太多时，仍然存在很多问题。在Kaggle上没有能直接用ID3算法进行解决的题目，所以在此没有数据集，我们可以假设数据的输入格式为 [特征(1,2...n),标签]。另外，实现中没有进行剪枝。
+
+数据集是关于车辆选择的，来自[UCI Car Evaluation](http://archive.ics.uci.edu/ml/datasets/Car+Evaluation)。
+
+训练集：[这里](https://github.com/CoolIceFire/ML/edit/master/ID3/train.csv)
+
+测试集：[这里](https://github.com/CoolIceFire/ML/edit/master/ID3/test.csv)，从训练集中随意挑选的。
+
+代码：[这里](https://github.com/CoolIceFire/ML/blob/master/ID3/ID3.py)
+
+	# -*- coding:utf-8 -*- 
+	from numpy import *
+	import operator
+	from math import *
+	import csv
+	import os
+	
+	# 树节点结构
+	class TreeNode:
+		def __init__(self, features=None, node=None, stop_flag=False, tag=None, feature_index=-1):
+			self.features = [] #该节点的特征集合
+			self.node = [] #该节点的子节点集合
+			self.stop_flag = stop_flag #是否停止分裂
+			self.tag = tag #分类
+			self.feature_index = feature_index #该特征的下标
+	
+	# 分割数据集，把data[index]==value的挑选出来
+	def SplitDataSet(data_set, index, value):
+		ret_data = []
+		for data in data_set:
+			if data[index] == value:
+				tmp_data = data[ : index]
+				tmp_data.extend(data[index+1 : ])
+				ret_data.append(tmp_data)
+		return ret_data
+	
+	# 计算熵
+	def CalcEntropy(data_set):
+		labels_set = set([data[-1] for data in data_set])	
+		labels_dict = dict()
+		for data in data_set:
+			labels_dict[data[-1]] = labels_dict.get(data[-1], 0) + 1
+		entropy = 0.0
+		for key in labels_dict:
+			prob = 1.0*labels_dict[key]/len(data_set)
+			entropy -= 1.0*prob*log(prob, 2)
+		return entropy
+	
+	# 挑选出最优的特征
+	def SelectBestFeature(data_set):
+		num_features = len(data_set[0])-1
+		pre_entropy = CalcEntropy(data_set)
+		max_entropy_gain = 0.0
+		best_feature_index = -1
+		for i in range(num_features):
+			features_set = set([data[i] for data in data_set])
+			tmp_entropy = 0
+			for feature in features_set:
+				tmp_data = SplitDataSet(data_set, i, feature)
+				tmp_entropy += 1.0*len(tmp_data)/len(data_set)*CalcEntropy(tmp_data)
+			if (pre_entropy-tmp_entropy) > max_entropy_gain:
+				max_entropy_gain = pre_entropy-tmp_entropy
+				best_feature_index = i
+		return best_feature_index
+	
+	# 建树
+	def BuildTree(data_set):
+		if len(data_set[0]) == 2:
+			labels_dict = dict()
+			for data in data_set:
+				labels_dict[data[-1]] = labels_dict.get(data[-1], 0) + 1
+			sorted_labels_dict = sorted(labels_dict.iteritems(), key=operator.itemgetter(1), reverse=True)
+			return TreeNode( None, None, True, sorted_labels_dict[0][0], -1)
+		best_feature_index = SelectBestFeature(data_set)
+		features_set = set()
+		labels_set = set()
+		for data in data_set:
+			features_set.add(data[best_feature_index])
+			labels_set.add(data[-1])
+		tree_node = TreeNode( None, None, False, None, best_feature_index)
+		if len(labels_set) == 1:
+			tree_node.stop_flag = True
+			tree_node.tag = data_set[0][-1]
+			return tree_node
+	
+		for feature in features_set:
+			tree_node.features.append(feature)
+			tree_node.node.append(BuildTree(SplitDataSet(data_set, best_feature_index, feature)))
+		return tree_node
+	
+	def GetTrainData(file_path):
+		data = []
+		with open(file_path) as file:
+			lines = csv.reader(file)
+			for line in lines:
+				data.append(line)
+		return data
+	
+	def GetTestData(file_path):
+		data = []
+		with open(file_path) as file:
+			lines = csv.reader(file)
+			for line in lines:
+				data.append(line)
+		return data
+	
+	# 预测
+	def Predict(decision_tree, test_data):
+		if decision_tree.stop_flag == True:
+			return decision_tree.tag
+		feature_index = decision_tree.feature_index 
+		for i in range(len(decision_tree.features)):
+			if decision_tree.features[i] == test_data[feature_index]:
+				test_next_data = test_data[:feature_index]
+				test_next_data.extend(test_data[feature_index+1:])
+				return Predict(decision_tree.node[i], test_next_data)
+	
+	if __name__ == '__main__':
+		train_data_set = GetTrainData('C:\\Users\\lg\\Desktop\\id31.csv')
+		test_data_set = GetTestData('C:\\Users\\lg\\Desktop\\test.csv')
+		decision_tree = BuildTree(train_data_set)
+		for test_data in test_data_set:
+			print(test_data[-1], Predict(decision_tree, test_data))
 
 
 ## 后记
