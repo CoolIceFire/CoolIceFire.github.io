@@ -103,6 +103,8 @@ tags:
 
 3. [Deep Neural Decision Forests](http://120.52.73.14/www.cv-foundation.org/openaccess/content_iccv_2015/papers/Kontschieder_Deep_Neural_Decision_ICCV_2015_paper.pdf)
 
+4. [Bernoulli Random Forests: Closing the Gap between Theoretical Consistency and Empirical Soundness](http://www.ijcai.org/Proceedings/16/Papers/309.pdf)
+
 ---------------------------------------------------------------------------------------------------------------
 
 Tensor系列
