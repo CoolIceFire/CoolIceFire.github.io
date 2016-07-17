@@ -178,7 +178,7 @@ ID3算法是一个分类预测算法，该算法的核心是“信息熵”问�
 	
 	# 建树
 	def BuildTree(data_set):
-		if len(data_set[0]) == 2:
+		if len(data_set[0]) == 2: #如果数据只有一个特征+一个标签，那么就应该停止分裂
 			labels_dict = dict()
 			for data in data_set:
 				labels_dict[data[-1]] = labels_dict.get(data[-1], 0) + 1
@@ -201,6 +201,7 @@ ID3算法是一个分类预测算法，该算法的核心是“信息熵”问�
 			tree_node.node.append(BuildTree(SplitDataSet(data_set, best_feature_index, feature)))
 		return tree_node
 	
+	#获取训练数据
 	def GetTrainData(file_path):
 		data = []
 		with open(file_path) as file:
@@ -209,6 +210,7 @@ ID3算法是一个分类预测算法，该算法的核心是“信息熵”问�
 				data.append(line)
 		return data
 	
+	#获取测试数据
 	def GetTestData(file_path):
 		data = []
 		with open(file_path) as file:
