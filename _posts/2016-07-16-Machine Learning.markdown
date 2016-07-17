@@ -13,15 +13,15 @@ tags:
 > “Yeah It's on. ”
 
 
-## 前言
+# 前言
 本文通过解决kaggle上的部分题目，介绍机器学习中的一部分算法，错误或不足之处欢迎指正！
 
 <p id = "build"></p>
 ---
 
-## 简介
+# 简介
 
-## kNN
+# kNN
 本段是利用k-近邻(kNN)算法解决kaggle上的[Digit Recognizer](https://www.kaggle.com/c/digit-recognizer)题目。训练集/测试集数据可以[下载](https://www.kaggle.com/c/digit-recognizer/data)。
 
 k-近邻(kNN)算法的工作原理是：存在一个样本数据集合，集合中每个数据都存在标签，即我们知道样本集合中每组数据与其所属分类的对应关系。输入没有标签的数据后，将新数据与样本数据中的对应特征进行比较，然后提取出样本集中最相似数据的标签。通常，我们选取样本数据集中前k个最相似的数据，这就是k-近邻算法中的k，最后选取这k个最相似数据的标签的众数作为新数据的分类。
@@ -106,7 +106,7 @@ k-近邻(kNN)算法的工作原理是：存在一个样本数据集合，集合�
 
 主要考虑问题：K的取值，训练样本是否一视同仁，能否在减少训练样本数的同时保持精度等
 
-## ID3
+# ID3
 ID3算法是一个分类预测算法，该算法的核心是“信息熵”问题，熵定义为信息的期望值，熵的计算公式为
 
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160716/01.gif)
@@ -238,6 +238,6 @@ ID3算法是一个分类预测算法，该算法的核心是“信息熵”问�
 			print(test_data[-1], Predict(decision_tree, test_data))
 
 
-## 后记
+# 后记
 
-## 参考
+# 参考
