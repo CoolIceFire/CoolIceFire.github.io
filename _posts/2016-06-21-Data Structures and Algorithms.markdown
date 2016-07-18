@@ -133,5 +133,156 @@ tags:
 
 ![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160622/05.png)
 
+**AVL**
+
+AVL树使一种自平衡二叉查找树，在AVL树中任何两个子树的高度最大差别为1，它因此也被成为高度平衡树。查找、插入和删除在平均和最坏情况下都是O(logn)，增加和删除可能通过一次或多次树旋转来重新平衡这个树，节点的平衡因子是它的左子树的高度减去它的右子树的高度，带有平衡因为1、0或-1的节点被认为是平衡的，带有平衡因子-2或2的节点被认为是不平衡的，并需要重新平衡这课树。平衡因子可以直接存储在每个节点中，也可以从节点的子树高度计算出来。
+
+AVL树中主要是处理四种旋转问题，如下图所示(来自维基百科)：
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160718/01.png)
+
+根据上图很容易能够写出各种旋转了，下面是简易实现：
+
+	#include <cstdio>
+	#include <iostream>
+	#include <string>
+	#include <cstdlib>
+	#include <vector>
+	#include <queue>
+	
+	using namespace std;
+	
+	typedef struct AvlNode
+	{
+	    double value;
+	    AvlNode* left;
+	    AvlNode* right;
+	    int height;
+	}AvlNode;
+	
+	int GetHeight(AvlNode*);
+	AvlNode* InsertTree(double, AvlNode*);
+	AvlNode* LLRotate(AvlNode*);
+	AvlNode* LRRotate(AvlNode*);
+	AvlNode* RRRotate(AvlNode*);
+	AvlNode* RLRotate(AvlNode*);
+	
+	int GetHeight(AvlNode* node)
+	{
+	    return node ? node->height : -1;
+	}
+	
+	AvlNode* InsertTree(double value, AvlNode* t)
+	{
+	    if (t == NULL)
+	    {
+	        t = (AvlNode*)malloc(sizeof(AvlNode));
+	        t->value = value, t->height = 0;
+	        t->left = t->right = NULL;
+	    }
+	    else
+	    {
+	        if (value < t->value)
+	        {
+	            t->left = InsertTree(value, t->left);
+	            if (GetHeight(t->left)-GetHeight(t->right) == 2)
+	            {
+	                if (value < t->left->value) t = LLRotate(t);
+	                else t = LRRotate(t);
+	            }
+	        }
+	        else if (value > t->value)
+	        {
+	            t->right = InsertTree(value, t->right);
+	            if (GetHeight(t->right)-GetHeight(t->left) == 2)
+	            {
+	                if (value < t->right->value) t = RLRotate(t);
+	                else t = RRRotate(t);
+	            }
+	        }
+	    }
+	    t->height = max(GetHeight(t->left), GetHeight(t->right)) + 1;
+	    return t;
+	}
+	
+	//left-left rotate
+	AvlNode* LLRotate(AvlNode* t)
+	{
+	    AvlNode* tmp = t->left;
+	    t->left = tmp->right;
+	    tmp->right = t;
+	    t->height = max(GetHeight(t->left), GetHeight(t->right))+1;
+	    tmp->height = max(GetHeight(tmp->left), GetHeight(tmp->right))+1;
+	    return tmp;
+	}
+	
+	//right-right rotate
+	AvlNode* RRRotate(AvlNode* t)
+	{
+	    AvlNode* tmp = t->right;
+	    t->right = tmp->left;
+	    tmp->left = t;
+	    t->height = max(GetHeight(t->left), GetHeight(t->right))+1;
+	    tmp->height = max(GetHeight(tmp->left), GetHeight(tmp->right))+1;
+	    return tmp;
+	}
+	
+	//left-right rotate
+	AvlNode* LRRotate(AvlNode* t)
+	{
+	    t->left = RRRotate(t->left);
+	    return LLRotate(t);
+	}
+	
+	//right-left rotate
+	AvlNode* RLRotate(AvlNode* t)
+	{
+	    t->right = LLRotate(t->right);
+	    return RRRotate(t);
+	}
+	
+	//find the target in avl-tree
+	bool Find(AvlNode* t, double target)
+	{
+	    if (t == NULL) return false;
+	    if (t->value == target) return true;
+	    if (t->value > target) return Find(t->left, target);
+	    return Find(t->right, target);
+	}
+	
+	//ouput the avl-tree
+	void PrintTree(AvlNode* t)
+	{
+	    queue<AvlNode*> qu;
+	    qu.push(t);
+	    while (!qu.empty())
+	    {
+	        AvlNode* tmp = qu.front();
+	        qu.pop();
+	        if (tmp == NULL) cout << " * ";
+	        else
+	        {
+	            cout << " " << tmp->value << " ";
+	            qu.push(tmp->left);
+	            qu.push(tmp->right);
+	        }
+	    }
+	    cout << endl;
+	}
+	
+	int main()
+	{
+	    AvlNode *t = NULL;
+	    while (true)
+	    {
+	        double a, b;
+	        cin >> a >> b;
+	        if (a == 1) t = InsertTree(b, t);
+	        else cout << "find:" << Find(t, b) << endl;
+	        PrintTree(t);
+	    }
+	}
+
+删除写起来稍微麻烦一点，涉及到各种调整，在这没写……简单的方法可以利用懒惰删除，设置一个标记位来表示该节点是否被删除。
 
 持续更新ing......
