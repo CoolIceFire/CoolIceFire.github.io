@@ -93,6 +93,8 @@ tags:
 
 35. [Time-Contrastive Learning for Latent Variable Models](http://www.inference.vc/temporal-contrastive-learning-for-latent-variable-models/)
 
+36. [Finding structure in data using multivariate tree boosting](https://arxiv.org/abs/1511.02025), GitHub(https://github.com/patr1ckm/mvtboost).
+
 ---------------------------------------------------------------------------------------------------------------
 
 随机森林系列
