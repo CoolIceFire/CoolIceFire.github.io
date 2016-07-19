@@ -103,6 +103,10 @@ tags:
 
 2. [Minimizing Regret](http://www.minimizingregret.com/)
 
+3. [A comparison of numerical optimizers for logistic regression](http://research.microsoft.com/en-us/um/people/minka/papers/logreg/minka-logreg.pdf)
+
+4. L1方面[Scalable Training of L1-Regularized Log-Linear Models](http://www.machinelearning.org/proceedings/icml2007/papers/449.pdf)
+
 ---------------------------------------------------------------------------------------------------------------
 
 随机森林系列
