@@ -237,6 +237,123 @@ ID3算法是一个分类预测算法，该算法的核心是“信息熵”问�
 		for test_data in test_data_set:
 			print(test_data[-1], Predict(decision_tree, test_data))
 
+# Logistic回归
+Logistic Regression可以简单的描述为下面几个过程：
+
+1. 寻找合适的预测函数(hypothesis),常常用h函数来表示，它用来预测输入数据的输出。
+2. 构造损失函数(cost function)，该函数可以用训练集数据的输出与预测输出之差来表示(y-h)，所用训练数据的损失记为J(θ) 
+3. 求参数使损失函数的值最小。
+
+有多种算法可以用来进行参数求解，比如梯度下降、随机梯度下降、牛顿法、拟牛顿法、BFGS、L-BFGS等等，可以阅读相关的资料推导等。下面是用随机梯度算法的简单实现。解决kaggle上的[Digit Recognizer](https://www.kaggle.com/c/digit-recognizer)题目。训练集/测试集数据可以[下载](https://www.kaggle.com/c/digit-recognizer/data)。
+
+	# -*- coding:utf-8 -*-
+	from numpy import *
+	import operator
+	import csv
+	
+	#flag表示是否为label，如果非label，则把所有>0值处理为1，其余为0
+	def Str2Int(data, flag):
+		print('Str2Int')
+		data = matrix(data)
+		new_data = zeros(data.shape)
+		for i in range(data.shape[0]):
+			for j in range(data.shape[1]):
+				if flag == True:
+					new_data[i, j] = 1 if int(data[i, j]) > 0 else 0
+				else:
+					new_data[i, j] = int(data[i, j])
+		return new_data
+	
+	#获取训练集数据
+	def GetTrainData(file_path):
+		print('GetTrainData')
+		l = []
+		line_cnt = 0
+		with open(file_path) as file:
+			lines = csv.reader(file)
+			for line in lines:
+				if line_cnt != 0:
+					l.append(line)
+				line_cnt += 1
+		l = matrix(l)
+		labels = l[:, 0]
+		data_set = l[:, 1:]
+		return Str2Int(data_set, True), Str2Int(labels, False)
+	
+	#获取测试集数据
+	def GetTestData(file_path):
+		print('GetTestData')
+		data = []
+		line_cnt = 0
+		with open(file_path) as file:
+			lines = csv.reader(file)
+			for line in lines:
+				if line_cnt != 0:
+					data.append(line)
+				line_cnt += 1
+		return Str2Int(data, True)
+	
+	def sigmoid(x):
+		return 1.0/(1 + exp(-x))
+	
+	def GetError(weights, data_set, labels):
+		error = 0
+		for i in range(shape(data_set)[0]):
+			h = sigmoid(sum(data_set[i]*weights))
+			h = 1 if h > 0.5 else 0
+			error += abs(labels[i]-h)
+		return error*1.0/shape(data_set)[0]
+	
+	def SGD(now, data_set, labels, num_iters, episilon = 0.0001):
+		m, n = shape(data_set)
+		print(m, n)
+		weights = zeros(n)
+		pre = 100
+		alpha = 0.0001
+		for iter in range(num_iters):
+			data_index = range(m)
+			if iter%50 == 0: alpha *= 0.9
+			for i in range(m):
+				index = int(random.uniform(0, len(data_index)))
+				h = sigmoid(sum(data_set[index]*weights))
+				error = labels[index] - h
+				weights = weights + alpha * error * data_set[index]
+				del(data_index[index])
+			error_rate = GetError(weights, data_set, labels)
+			if error_rate < episilon:
+				break
+			print('Now: %d, Iter: %d, %f' % (now, iter, error_rate))
+		return weights
+	
+	def GetPredict(test_data, weights, pro, now):
+		m, n = shape(test_data)
+		for i in range(m):
+			pro[i, now] = sigmoid(sum(test_data[i]*weights))
+	
+	if __name__ == '__main__':
+		train_data_set, train_labels = GetTrainData('E:\\DL\\DR\\train.csv')
+		test_data_set = GetTestData('E:\\DL\\DR\\test.csv')
+		pro = zeros((shape(test_data_set)[0], 10))
+		for i in range(10):
+			print('begin: ', i)
+			labels = [1 if train_labels[j, 0] == i else 0 for j in range(shape(train_labels)[0])]
+			weights = SGD(i, train_data_set, labels, 1000)
+			GetPredict(test_data_set, weights, pro, i)
+		m = shape(test_data_set)[0]
+		for i in range(m):
+			mn = -1; idx = -1
+			for j in range(10):
+				if pro[i, j] > mn:
+					mn = pro[i, j]
+					idx = j
+			print(i+1,idx)
+
+参数的问题，准确率并不高，90%多点，可以调一下参数测试下参数不同时的效果。
+
+优点：计算代价不高，易于实现和理解。
+
+缺点：容易欠拟合，分类精度可能不高。
+
 
 # 后记
 
