@@ -1,9 +1,9 @@
 # Site settings
-title: LiGuang Blog
-SEOTitle: 李光的博客 | LiGuang Blog
+title: Guang Li's Blog
+SEOTitle: 李光的博客 | Guang Li's Blog
 header-img: img/home-bg.jpg
 email: 38927771@qq.com
-description: "关于编程、推荐系统的学习"
+description: "关于机器学习、推荐系统的学习"
 keyword: "推荐系统"
 url: "http://CoolIceFire.github.io"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
