@@ -354,6 +354,81 @@ Logistic Regression可以简单的描述为下面几个过程：
 
 缺点：容易欠拟合，分类精度可能不高。
 
+# 线性判别式分析
+线性判别式分析(LDA)，也叫做Fisher线性判别(FLD)，是模式识别的经典算法。基本思想是将高维的模式样本投影到最佳鉴别矢量空间，以达到抽取分类信息和压缩特征空间维数的效果，投影后保证模式样本在新的子空间有最大的类间距离和最小的类内距离，即模式在该空间中有最佳的可分离性。通过推导可得到:**只需要求出原始样本的均值和方差就可以求出最佳的方向w**,下面是部分推导过程以及简易代码实现，数据以及代码可以[看这](https://github.com/CoolIceFire/ML/tree/master/Fisher).
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160721/03.png)
+
+	import csv
+	from numpy import *
+	import matplotlib.pyplot as plt
+	from numpy.linalg import *
+	
+	def Str2Double(data):
+		data = matrix(data)
+		m, n = shape(data)
+		ret = ones((m, n))
+		for i in range(m):
+			for j in range(n):
+				ret[i, j] = double(data[i, j])
+		return ret
+	
+	def GetData(file_path):
+		l = []
+		with open(file_path) as file:
+			lines = csv.reader(file)
+			for line in lines:
+				l.append(line)
+			return Str2Double(l)
+	
+	def PltShow(x, y, w):
+		x_0 = [[],[]]
+		x_1 = [[],[]]
+		for i in range(shape(x)[0]):
+			if y[i, 0] == 0:
+				x_0[0].append(x[i, 0])
+				x_0[1].append(x[i, 1])
+			else:
+				x_1[0].append(x[i, 0])
+				x_1[1].append(x[i, 1])
+		axes = plt.subplot(111)
+		type0 = axes.scatter(x_0[0], x_0[1], s=20, c='red')
+		type1 = axes.scatter(x_1[0], x_1[1], s=40, c='yellow')
+		plt.plot([0, 10], [0, 10.0*w])
+		axes.legend((type0, type1), ('OK', 'NO'), loc=2)
+		plt.show()
+	
+	def Fisher(x, y):
+		m, n = shape(x)
+		u0 = zeros((1, 2)); u1 = zeros((1, 2))
+		cnt = [0, 0]
+		for i in range(m):
+			if y[i, 0] == 0:
+				u0 += x[i]
+				cnt[0] += 1
+			else:
+				u1 += x[i]
+				cnt[1] += 1
+		u0 /= cnt[0]; u1 /= cnt[1]
+		u0 = u0.T; u1 = u1.T
+		u = u0 - u1
+		sw = zeros((2, 2))
+		for i in range(m):
+			if y[i, 0] == 0:
+				sw += dot(x[i].T-u0, (x[i].T-u0).T)
+			else:
+				sw += dot(x[i].T-u1, (x[i].T-u1).T)
+		return dot(inv(sw), u)
+	
+	if __name__ == '__main__':
+		x = GetData('C:\\Users\\lg\\Desktop\\1.csv')
+		y = GetData('C:\\Users\\lg\\Desktop\\2.csv')
+		w = Fisher(x, y)
+		PltShow(x, y, w[1,0]/w[0,0])
+
+下面是效果图
+
+![](https://raw.githubusercontent.com/CoolIceFire/CoolIceFire.github.io/master/img/20160721/02.png)
 
 # 后记
 
