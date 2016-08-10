@@ -39,6 +39,36 @@ tags:
 			swap(ith, jth)
 		
 
+##蒙特卡洛数值积分
+
+![](https://github.com/CoolIceFire/CoolIceFire.github.io/blob/master/img/20160810/1.jpg?raw=true)
+
+简单示例：求f(x)=e^(2x+1)在[3,5]上的积分
+
+根据图中的推导可得：a=3、b=5、由于f(x)在[3,5]上是单调递增函数，所以c=f(3)=exp(7),d=f(5)=exp(11)，简单代码如下，假设n=10^5,结果为29230.920253，直接计算积分约为29388.7542784
+
+	from numpy.random import *
+	from numpy import *
+	
+	n = 10000
+	a = 3; b = 5; u = 0
+	c = exp(7); d = exp(11)
+	def g(x):
+		return exp(2*x+1)
+	
+	def f(y):
+		return (g(a+(b-a)*y)-c)/(d-c)
+	
+	for i in range(n):
+		x = ranf()
+		y = ranf()
+		if y <= f(x): u += 1
+	print((b-a)*(d-c)*(1.0*u/n)+c*(b-a))
+	print((exp(11)-exp(7))*0.5)
+
+
+当然还可以用求均值的方法，即J=sum(f(xi))/n.
+
 ## 后记
 
 ## 参考
