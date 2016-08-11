@@ -91,6 +91,10 @@ tags:
 	3. 如果f(xi)/(M*g(xi)) >= ui，则接受这次采样；否则拒绝
 	4. 重复上述步骤，知道获得足够的样本
 
+## MCMC 和 Gibbs Sampling
+
+[这儿](http://cos.name/2013/01/lda-math-mcmc-and-gibbs-sampling/)有一篇很好的文章，可以阅读这个。
+
 ## 后记
 
 ## 参考
