@@ -69,6 +69,28 @@ tags:
 
 当然还可以用求均值的方法，即J=sum(f(xi))/n.
 
+## Box-Muller变换
+
+基本思想是先得到服从均匀分布的随机数然后将其转变为服从正态分布的随机数。推导如下：
+
+![](https://github.com/CoolIceFire/CoolIceFire.github.io/blob/master/img/20160810/2.jpg?raw=true)
+
+## 接受-拒绝抽样(Acceptance-Rejection Sampling)
+![](https://github.com/CoolIceFire/CoolIceFire.github.io/blob/master/img/20160810/3.png?raw=true)
+
+在实际的应用场景中，有时我们很难直接采样f(x)，我们可以用一个容易采样的方法g(x)进行采样，然后其中的一部分样本作为有效的样本，另一部分则认为是无效的舍弃掉。但是它需要满足几个条件：
+
+	1. 对于任意一个x，有f(x) <= M*g(x)
+	2. g(x)容易采样
+	3. g(x)的形状最好比较接近f(x)
+
+采样过程如下：
+	
+	1. 利用g(x)获得一个采样样本xi
+	2. 均匀分布采样 ui~U(0,1)
+	3. 如果f(xi)/(M*g(xi)) >= ui，则接受这次采样；否则拒绝
+	4. 重复上述步骤，知道获得足够的样本
+
 ## 后记
 
 ## 参考
