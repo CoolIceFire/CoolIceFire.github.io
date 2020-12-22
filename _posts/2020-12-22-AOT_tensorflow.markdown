@@ -1,3 +1,17 @@
+---
+layout:     post
+title:      "AOT demo"
+subtitle:   "aot方式实现模型推理"
+date:       2020-12-22
+author:     "CoolIceFire"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - 算法
+    - TensorFlow
+---
+
+
 代码在这里：https://github.com/CoolIceFire/aot_demo
 
 1. 运行 train_model.py 得到 saved_model
